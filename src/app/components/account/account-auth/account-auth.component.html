@@ -1,0 +1,18 @@
+<div class="account mat-elevation-z4">
+  <h2>Entrar</h2>
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput (keyup)="checkEmail()" [(ngModel)]="account.username" name="email" type="email">
+    <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+    <!-- <mat-hint>Hint</mat-hint> -->
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Senha</mat-label>
+    <input matInput (keyup)="checkPassword()" [(ngModel)]="account.password" name="password" type="password">
+    <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+    <!-- <mat-hint>Hint</mat-hint> -->
+  </mat-form-field>
+  <button mat-raised-button color="primary" [disabled]="!statusPassword || !statusEmail" (click)="onSubmit()">Entrar</button>
+  <button mat-raised-button routerLink="/conta/criar">Criar conta</button>
+  <!-- <button mat-raised-button routerLink="/recuperar/senha">Esqueci a senha</button> -->
+</div>
