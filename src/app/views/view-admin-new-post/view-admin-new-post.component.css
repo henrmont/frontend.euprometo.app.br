@@ -1,0 +1,21 @@
+:host {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+:host ::ng-deep .ck-editor__editable_inline {
+  min-height: 400px !important;
+  max-height: 400px !important;
+}
+
+.buttons {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}

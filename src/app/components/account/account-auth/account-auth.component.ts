@@ -53,7 +53,7 @@ export class AccountAuthComponent implements OnInit {
           (user: any) => {
             if (user.status) {
               window.localStorage.setItem('token', response.token)
-              this.router.navigate(['painel'])
+              this.router.navigate([''])
             } else {
               this.globalService.showMessage(user.message)
             }

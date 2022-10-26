@@ -1,0 +1,21 @@
+<mat-form-field appearance="outline">
+  <mat-label>Título</mat-label>
+  <input matInput placeholder="Título" name="title" [(ngModel)]="post.title">
+  <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+  <!-- <mat-hint>Hint</mat-hint> -->
+</mat-form-field>
+<mat-form-field appearance="outline">
+  <mat-label>Subtítulo</mat-label>
+  <input matInput placeholder="Subtítulo" name="subtitle" [(ngModel)]="post.subtitle">
+  <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+  <!-- <mat-hint>Hint</mat-hint> -->
+</mat-form-field>
+<ckeditor [editor]="Editor" name="content" [(ngModel)]="post.content"></ckeditor>
+<div class="buttons">
+  <button mat-raised-button routerLink="/admin">
+    VOLTAR
+  </button>
+  <button mat-raised-button [disabled]="checkTitle() || checkSubtitle() || checkContent()" (click)="onSubmit()">
+    ADICIONAR POST
+  </button>
+</div>

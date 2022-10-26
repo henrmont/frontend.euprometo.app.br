@@ -1,4 +1,3 @@
-import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -9,7 +8,6 @@ export class GlobalService {
 
   constructor(
     private snackbar: MatSnackBar,
-    private router: Router
   ) { }
 
   showMessage(message: any) {
@@ -22,6 +20,15 @@ export class GlobalService {
 
   logout() {
     window.localStorage.removeItem('token')
-    this.router.navigate(['/']);
+    window.location.reload()
+  }
+
+  checkAuthenticated() {
+    const token = window.localStorage.getItem('token')
+    if (token) {
+      return true
+    } else {
+      return false
+    }
   }
 }

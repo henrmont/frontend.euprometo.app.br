@@ -1,11 +1,39 @@
 <mat-toolbar color="primary" class="main">
   <div></div>
-  <div></div>
-  <div style="display: flex; justify-content: flex-end;">
+  <div style="display: flex; justify-content: center;">
+    <h1>{{title}}</h1>
+  </div>
+  <div style="display: flex; justify-content: flex-end;" *ngIf="!authenticated">
     <button mat-raised-button routerLink="conta/login">ENTRAR</button>
   </div>
+  <div style="display: flex; align-items: center; justify-self: right;" *ngIf="authenticated">
+    <div class="user_info">
+      <span style="font-size: 16px;">Patrícia Freitas</span>
+      <span>pat_freitas@gmail.com</span>
+    </div>
+    <img src="assets/img/01.png" class="image mat-elevation-z4" [matMenuTriggerFor]="menu">
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="painel">
+        <mat-icon>settings</mat-icon>
+        <span>Configurações</span>
+      </button>
+      <button mat-menu-item routerLink="admin">
+        <mat-icon>admin_panel_settings</mat-icon>
+        <span>Administrativo</span>
+      </button>
+      <button mat-menu-item (click)="globalService.logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Sair</span>
+      </button>
+    </mat-menu>
+  </div>
 </mat-toolbar>
-<mat-toolbar class="menu">
+<mat-toolbar class="menu mat-elevation-z4">
 
 </mat-toolbar>
-<router-outlet></router-outlet>
+<div class="container">
+  <router-outlet (activate)="changeTitle($event.title)"></router-outlet>
+</div>
+<div class="today">
+
+</div>

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TemplatePanelComponent } from './template-panel.component';
+import { ViewAdminComponent } from './view-admin.component';
 
-describe('TemplatePanelComponent', () => {
-  let component: TemplatePanelComponent;
-  let fixture: ComponentFixture<TemplatePanelComponent>;
+describe('ViewAdminComponent', () => {
+  let component: ViewAdminComponent;
+  let fixture: ComponentFixture<ViewAdminComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TemplatePanelComponent ]
+      declarations: [ ViewAdminComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TemplatePanelComponent);
+    fixture = TestBed.createComponent(ViewAdminComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

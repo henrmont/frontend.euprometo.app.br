@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { GlobalService } from './../../components/global.service';
+import { Component, OnInit, EventEmitter, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-template-general',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemplateGeneralComponent implements OnInit {
 
-  constructor() { }
+  authenticated!: boolean
+  title!: string
+
+  constructor(
+    private arouter: ActivatedRoute,
+    public globalService: GlobalService
+  ) { }
 
   ngOnInit(): void {
+    this.authenticated = this.globalService.checkAuthenticated()
   }
 
+  changeTitle(title: string) {
+    this.title = title
+  }
 }

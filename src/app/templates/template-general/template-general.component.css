@@ -2,8 +2,49 @@
   height: 70px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  position: fixed;
+  top: 0;
+  z-index: 3;
 }
 
 .menu {
   height: 50px;
+  position: fixed;
+  top: 70px;
+  z-index: 2;
+}
+
+.user_info {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  font-size: 12px;
+}
+
+.image {
+  margin: 0 10px;
+  height: 50px;
+}
+
+.container {
+  position: relative;
+  top: 120px;
+  width: 70%;
+  height: auto;
+  float: left;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.today {
+  width: 30%;
+  position: fixed;
+  top: 120px;
+  right: 0;
+  height: calc(100% - 120px);
+  background-color: blue;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
 }

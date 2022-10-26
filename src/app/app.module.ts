@@ -13,10 +13,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatMenuModule} from '@angular/material/menu';
 
-
-
-
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 
 import { ViewMainComponent } from './views/view-main/view-main.component';
@@ -26,8 +25,9 @@ import { TemplateAccountComponent } from './templates/template-account/template-
 import { AccountAuthComponent } from './components/account/account-auth/account-auth.component';
 import { AccountCreateComponent } from './components/account/account-create/account-create.component';
 import { ViewAccountCreateComponent } from './views/view-account-create/view-account-create.component';
-import { TemplatePanelComponent } from './templates/template-panel/template-panel.component';
 import { ViewPanelComponent } from './views/view-panel/view-panel.component';
+import { ViewAdminComponent } from './views/view-admin/view-admin.component';
+import { ViewAdminNewPostComponent } from './views/view-admin-new-post/view-admin-new-post.component';
 
 @NgModule({
   declarations: [
@@ -39,8 +39,9 @@ import { ViewPanelComponent } from './views/view-panel/view-panel.component';
     AccountAuthComponent,
     AccountCreateComponent,
     ViewAccountCreateComponent,
-    TemplatePanelComponent,
-    ViewPanelComponent
+    ViewPanelComponent,
+    ViewAdminComponent,
+    ViewAdminNewPostComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +55,11 @@ import { ViewPanelComponent } from './views/view-panel/view-panel.component';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatMenuModule,
+
+    CKEditorModule,
+
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AccountInterceptor, multi: true},

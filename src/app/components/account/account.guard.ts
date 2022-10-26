@@ -19,7 +19,7 @@ export class AccountGuard implements CanActivate {
     if (token) {
       return true
     } else {
-      this.router.navigate(['conta/login'])
+      this.router.navigate([''])
       return false
     }
   }
