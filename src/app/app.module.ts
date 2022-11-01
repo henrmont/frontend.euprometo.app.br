@@ -16,6 +16,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatMenuModule} from '@angular/material/menu';
 
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { GalleryModule } from  'ng-gallery';
+
 
 
 import { ViewMainComponent } from './views/view-main/view-main.component';
@@ -28,6 +30,7 @@ import { ViewAccountCreateComponent } from './views/view-account-create/view-acc
 import { ViewPanelComponent } from './views/view-panel/view-panel.component';
 import { ViewAdminComponent } from './views/view-admin/view-admin.component';
 import { ViewAdminNewPostComponent } from './views/view-admin-new-post/view-admin-new-post.component';
+import { PostViewComponent } from './components/post/post-view/post-view.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,8 @@ import { ViewAdminNewPostComponent } from './views/view-admin-new-post/view-admi
     ViewAccountCreateComponent,
     ViewPanelComponent,
     ViewAdminComponent,
-    ViewAdminNewPostComponent
+    ViewAdminNewPostComponent,
+    PostViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,6 +63,7 @@ import { ViewAdminNewPostComponent } from './views/view-admin-new-post/view-admi
     MatMenuModule,
 
     CKEditorModule,
+    GalleryModule,
 
   ],
   providers: [

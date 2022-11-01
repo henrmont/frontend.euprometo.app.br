@@ -1,3 +1,7 @@
+import { AccountService } from './../../components/account/account.service';
+import { GlobalService } from './../../components/global.service';
+import { Post } from './../../components/post/post.model';
+import { PostService } from './../../components/post/post.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +11,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewMainComponent implements OnInit {
 
-  constructor() { }
+  posts!: Post[]
+
+  constructor(
+    private postService: PostService,
+    private globalService: GlobalService,
+  ) { }
 
   ngOnInit(): void {
+    this.postService.getPosts().subscribe(
+      (response: any) => {
+        if (response.status) {
+          this.posts = response.data
+        } else {
+          this.globalService.showMessage(response.message)
+        }
+      },
+      (error: any) => {
+        // console.log('teste')
+      }
+    )
   }
 
 }

@@ -19,7 +19,7 @@ export class GlobalService {
   }
 
   logout() {
-    window.localStorage.removeItem('token')
+    window.localStorage.clear()
     window.location.reload()
   }
 

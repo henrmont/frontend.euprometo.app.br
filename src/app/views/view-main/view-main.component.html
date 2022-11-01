@@ -1,1 +1,4 @@
-<p>view-main works!</p>
+
+<div *ngFor="let post of posts">
+  <app-post-view [data]="post"></app-post-view>
+</div>

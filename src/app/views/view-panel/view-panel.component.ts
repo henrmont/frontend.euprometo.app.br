@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { PostService } from './../../components/post/post.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewPanelComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+    if (window.localStorage.getItem('token')) {
+      this.router.navigate(['main'])
+    }
   }
 
 }

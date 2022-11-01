@@ -21,6 +21,13 @@ export class AccountService {
     return this.http.post<Account>(`${environment.baseUrl}/api/login_check`, user)
   }
 
+  refreshToken(): Observable<any>  {
+    let input = {
+      refresh_token: window.localStorage.getItem('refreshToken'),
+    }
+    return this.http.post<any>(`${environment.baseUrl}/api/token/refresh`, input)
+  }
+
   getValidUser(user: Account): Observable<Account> {
     return this.http.post<Account>(`${environment.baseUrl}/get/valid/user`, user)
   }
@@ -31,5 +38,10 @@ export class AccountService {
 
   authenticated(): Observable<Account> {
     return this.http.get<Account>(`${environment.baseUrl}/authenticated`)
+  }
+
+  logout() {
+    window.localStorage.clear()
+    window.location.reload()
   }
 }

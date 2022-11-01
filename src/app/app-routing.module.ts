@@ -15,7 +15,8 @@ const routes: Routes = [
     path: '',
     component: TemplateGeneralComponent,
     children: [
-      {path: '', component: ViewMainComponent},
+      {path: '', component: ViewPanelComponent},
+      {path: 'main', component: ViewMainComponent, canActivate: [AccountGuard]},
     ]
   },
   {
@@ -26,14 +27,15 @@ const routes: Routes = [
       {path: 'criar', component: ViewAccountCreateComponent},
     ]
   },
-  {
-    path: 'painel',
-    component: TemplateGeneralComponent,
-    children: [
-      {path: '', component: ViewPanelComponent},
-    ],
-    canActivate: [AccountGuard]
-  },
+  // {
+  //   path: '',
+  //   component: TemplateGeneralComponent,
+  //   children: [
+  //     {path: '', redirectTo: 'main', pathMatch: 'full'},
+  //     {path: 'main', component: ViewMainComponent},
+  //   ],
+  //   canActivate: [AccountGuard]
+  // },
   {
     path: 'admin',
     component: TemplateGeneralComponent,

@@ -16,4 +16,8 @@ export class PostService {
   createPost(post: Post): Observable<Post> {
     return this.http.post<Post>(`${environment.baseUrl}/api/create/post`, post)
   }
+
+  getPosts(): Observable<Post> {
+    return this.http.get<Post>(`${environment.baseUrl}/api/get/posts`)
+  }
 }
