@@ -1,0 +1,88 @@
+<mat-toolbar color="primary" class="main">
+  <div>
+    <a routerLink="/" class="logo">
+      <span>interado</span>
+    </a>
+  </div>
+  <div style="display: flex; justify-content: center;">
+    <h1>{{title}}</h1>
+  </div>
+  <div style="display: flex; justify-content: flex-end;" *ngIf="!authenticated">
+    <button mat-raised-button routerLink="conta/login">ENTRAR</button>
+  </div>
+  <div style="display: flex; align-items: center; justify-self: right;" *ngIf="authenticated">
+    <div class="user_info">
+      <span style="font-size: 16px;">Patrícia Freitas</span>
+      <span>pat_freitas@gmail.com</span>
+    </div>
+    <img src="assets/img/01.png" class="image mat-elevation-z4" [matMenuTriggerFor]="menu">
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="painel">
+        <mat-icon>settings</mat-icon>
+        <span>Configurações</span>
+      </button>
+      <button mat-menu-item routerLink="/admin">
+        <mat-icon>admin_panel_settings</mat-icon>
+        <span>Administrativo</span>
+      </button>
+      <button mat-menu-item (click)="globalService.logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Sair</span>
+      </button>
+    </mat-menu>
+  </div>
+</mat-toolbar>
+<mat-toolbar class="menu mat-elevation-z4" color="accent">
+  <button mat-button color="primary" [matMenuTriggerFor]="postmenu">
+    <mat-icon>article</mat-icon>
+    POSTS
+  </button>
+  <mat-menu #postmenu="matMenu">
+    <button mat-menu-item routerLink="add/post">
+      <mat-icon>add</mat-icon>
+      <span>Novo post</span>
+    </button>
+    <button mat-menu-item routerLink="admin">
+      <mat-icon>block</mat-icon>
+      <span>Posts inativos</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>done</mat-icon>
+      <span>Posts ativos</span>
+    </button>
+  </mat-menu>
+  <button mat-button color="primary" [matMenuTriggerFor]="politicianmenu">
+    <mat-icon>manage_accounts</mat-icon>
+    POLÍTICOS
+  </button>
+  <mat-menu #politicianmenu="matMenu">
+    <button mat-menu-item routerLink="add/politico">
+      <mat-icon>add</mat-icon>
+      <span>Adicionar Político </span>
+    </button>
+    <button mat-menu-item routerLink="politicos">
+      <mat-icon>format_list_bulleted</mat-icon>
+      <span>Lista de políticos</span>
+    </button>
+  </mat-menu>
+  <button mat-button color="primary" disabled>
+    <mat-icon>today</mat-icon>
+    AGENDA DE HOJE
+  </button>
+  <button mat-button color="primary" disabled>
+    <mat-icon>bar_chart</mat-icon>
+    ESTATÍSTICAS
+  </button>
+  <button mat-button color="primary">
+    <mat-icon>dark_mode</mat-icon>
+    MODO NOTURNO
+  </button>
+
+</mat-toolbar>
+<div class="container">
+  <router-outlet (activate)="changeTitle($event.title)"></router-outlet>
+</div>
+<div class="today">
+
+</div>
+

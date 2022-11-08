@@ -17,5 +17,5 @@
     <mat-icon matSuffix *ngIf="statusPassword" style="color: green;">check</mat-icon>
   </mat-form-field>
   <button mat-raised-button color="primary" [disabled]="!statusPassword || !statusEmail" (click)="onSubmit()">Cadastrar</button>
-  <button mat-raised-button routerLink="/conta/login">Voltar</button>
+  <button mat-raised-button color="accent" routerLink="/conta/login">Voltar</button>
 </div>

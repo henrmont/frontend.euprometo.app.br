@@ -1,4 +1,14 @@
-<gallery [items]="images"
-    [thumb]="true"
-    [counter]="false">
-</gallery>
+<div class="post mat-elevation-z8">
+  <gallery [id]="galleryId"
+      [thumb]="false"
+      [counter]="false">
+  </gallery>
+  <div class="info">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <span class="data"><mat-icon>event</mat-icon>{{data.createdAt|date: 'dd/MM/YYYY'}}</span>
+      <button mat-raised-button color="primary" [routerLink]="'/post/'+data.id">VER</button>
+    </div>
+    <span class="title">{{data.title}}</span>
+    <span class="subtitle">{{data.subtitle}}</span>
+  </div>
+</div>

@@ -18,6 +18,10 @@ export class PostService {
   }
 
   getPosts(): Observable<Post> {
-    return this.http.get<Post>(`${environment.baseUrl}/api/get/posts`)
+    return this.http.get<Post>(`${environment.baseUrl}/get/posts`)
+  }
+
+  getPost(post: number): Observable<Post> {
+    return this.http.get<Post>(`${environment.baseUrl}/get/post/`+post)
   }
 }

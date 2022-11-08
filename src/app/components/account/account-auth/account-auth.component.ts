@@ -54,7 +54,7 @@ export class AccountAuthComponent implements OnInit {
             if (user.status) {
               window.localStorage.setItem('token', response.token)
               window.localStorage.setItem('refreshToken', response.refresh_token)
-              this.router.navigate(['main'])
+              this.router.navigate([''])
             } else {
               this.globalService.showMessage(user.message)
             }

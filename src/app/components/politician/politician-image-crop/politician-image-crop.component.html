@@ -1,0 +1,23 @@
+<h3>Selecione a área da imagem</h3>
+<input type="file" class="file-input" #fileInput>
+<div class="image-container">
+  <div>
+    <image-cropper
+      [imageChangedEvent]="imgChangeEvt"
+      [maintainAspectRatio]="true"
+      [aspectRatio]="1 / 1"
+      [cropperStaticHeight]="600"
+      format="png"
+      (imageCropped)="cropImg($event)"
+      (imageLoaded)="imgLoad()"
+      (cropperReady)="initCropper()"
+      (loadImageFailed)="imgFailed()">
+    </image-cropper>
+  </div>
+  <div>
+    <button mat-raised-button color="accent" (click)="uploadImage()">
+        <mat-icon>add_a_photo</mat-icon>
+        Adicionar imagem
+    </button>
+  </div>
+</div>

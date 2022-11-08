@@ -10,12 +10,30 @@
   <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
   <!-- <mat-hint>Hint</mat-hint> -->
 </mat-form-field>
-<ckeditor [editor]="Editor" name="content" [(ngModel)]="post.content"></ckeditor>
+<div class="attach">
+  <button mat-raised-button color="primary" (click)="attachUpload.click()" [disabled]="limit">
+    <input type="file" (change)="onFileChange($event)" [accept]="fileType" class="file-input" #attachUpload>
+    <mat-icon>add</mat-icon>
+  </button>
+  <div *ngFor="let item of files; let i = index" class="media">
+    <button mat-raised-button color="accent" (click)="deleteItem(i)">
+      <div *ngIf="contentType(item) == 'video/mp4'; then thenBlock else elseBlock"></div>
+      <ng-template #thenBlock>
+        <video [src]="item" autoplay loop [muted]="'muted'"></video>
+      </ng-template>
+      <ng-template #elseBlock>
+        <img [src]="item">
+      </ng-template>
+    </button>
+  </div>
+</div>
+<ckeditor [(ngModel)]="post.content" [editor]="Editor"></ckeditor>
+
 <div class="buttons">
   <button mat-raised-button routerLink="/admin">
     VOLTAR
   </button>
-  <button mat-raised-button [disabled]="checkTitle() || checkSubtitle() || checkContent()" (click)="onSubmit()">
+  <button mat-raised-button [disabled]="checkTitle() || checkSubtitle() || checkContent() || checkFiles()" (click)="onSubmit()">
     ADICIONAR POST
   </button>
 </div>

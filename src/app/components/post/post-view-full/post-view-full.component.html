@@ -1,0 +1,22 @@
+<div class="data">
+  <div>
+    <mat-icon>today</mat-icon>{{post.createdAt|date: 'dd/MM/YYYY'}}
+  </div>
+  <div>
+    <span>Jorge Henrique</span>
+  </div>
+</div>
+<div class="title">
+  <span>{{post.title}}</span>
+</div>
+<div class="subtitle">
+  <span>{{post.subtitle}}</span>
+</div>
+<div class="gallery mat-elevation-z8">
+  <gallery [id]="galleryId"
+    [thumb]="false"
+    [counter]="false">
+  </gallery>
+</div>
+<div class="content" [innerHTML]="post.content">
+</div>

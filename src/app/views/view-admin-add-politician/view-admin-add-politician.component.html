@@ -1,0 +1,63 @@
+<div class="col2">
+  <mat-form-field appearance="outline">
+    <mat-label>Nome do político</mat-label>
+    <input matInput placeholder="Nome do político" name="name" [(ngModel)]="politician.name">
+    <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+    <!-- <mat-hint>Hint</mat-hint> -->
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Estado</mat-label>
+    <input type="text"
+           placeholder="Estado do político"
+           matInput
+           [formControl]="controlStates"
+           [matAutocomplete]="states"
+           [(ngModel)]="politician.state">
+    <mat-autocomplete #states="matAutocomplete">
+      <mat-option *ngFor="let item of filteredStates | async" [value]="item">
+        {{item}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</div>
+<div class="col2">
+  <mat-form-field appearance="outline">
+    <mat-label>Tipo de mandato</mat-label>
+    <mat-select name="type" [(ngModel)]="politician.type">
+      <mat-option *ngFor="let item of types" [value]="item.value">
+        {{item.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Partido do político</mat-label>
+    <input type="text"
+           placeholder="Partido do político"
+           matInput
+           [formControl]="controlPartys"
+           [matAutocomplete]="partys"
+           [(ngModel)]="politician.party">
+    <mat-autocomplete #partys="matAutocomplete">
+      <mat-option *ngFor="let item of filteredPartys | async" [value]="item">
+        {{item}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</div>
+<div class="col2">
+  <button mat-raised-button class="photo" color="accent" (click)="imageUpload.click()" style="height: 50px;">
+    <input type="file" (change)="onImageChange($event)" [accept]="imageFileType" class="file-input" #imageUpload>
+    <mat-icon>image</mat-icon>
+    <span>ADICIONAR FOTO</span>
+  </button>
+  <img [src]="image[0]" *ngIf="image[0]">
+  <mat-icon *ngIf="!image[0]" style="font-size: 350px; height: 350px; width: 350px; text-align: center; color: rgb(200,200,200);">account_circle</mat-icon>
+</div>
+<div class="col2" style="margin-top: 50px;">
+  <button mat-raised-button routerLink="/admin">
+    VOLTAR
+  </button>
+  <button mat-raised-button color="primary" [disabled]="checkName() || checkParty() || checkState() || checkType()" (click)="onSubmit()">
+    ADICIONAR POLÍTICO
+  </button>
+</div>

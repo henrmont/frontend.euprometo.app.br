@@ -6,6 +6,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 
+
 @Component({
   selector: 'app-view-admin-new-post',
   templateUrl: './view-admin-new-post.component.html',
@@ -13,18 +14,18 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 })
 export class ViewAdminNewPostComponent implements OnInit {
 
-  statusTitle: boolean = false
-  statusSubtitle: boolean = false
-  statusContent: boolean = false
+  files: any[] = []
+  limit: boolean = false
+  fileType: string = 'image/png, image/jpeg, video/mp4'
+
+  public Editor = ClassicEditor;
 
   post: Post = {
     title: '',
     subtitle: '',
     content: '',
+    files: []
   }
-
-  public Editor = ClassicEditor;
-  content!: string
 
   @Output() titleData: EventEmitter<string> = new EventEmitter()
   title: string = this.arouter.snapshot.data['title']
@@ -64,7 +65,49 @@ export class ViewAdminNewPostComponent implements OnInit {
     }
   }
 
+  checkFiles() {
+    if (this.files.length == 0) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  checkLimit() {
+    if (this.files.length < 6) {
+      this.limit = false
+    } else {
+      this.limit = true
+    }
+  }
+
+  onFileChange(event: any): void {
+    const file:File = event.target.files[0]
+    const reader = new FileReader()
+    reader.readAsDataURL(file as Blob)
+    reader.onloadend = (e) => {
+      reader.result as string
+
+      if (reader.result) {
+        this.files.push(reader.result)
+        this.checkLimit()
+      }
+    }
+  }
+
+  contentType(url: any) {
+    let mimeType = url.match(/[^:]\w+\/[\w-+\d.]+(?=;|,)/)[0]
+
+    return mimeType
+  }
+
+  deleteItem(i: number) {
+    this.files.splice(i, 1)
+    this.checkLimit()
+  }
+
   onSubmit() {
+    this.post.files = this.files
     this.postService.createPost(this.post).subscribe(
       (response: any) => {
         if (response.status) {

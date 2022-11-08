@@ -2,11 +2,56 @@
   width: 80%;
   display: flex;
   flex-direction: column;
+  margin-bottom: 50px;
 }
 
 mat-form-field {
   width: 100%;
 }
+
+.attach {
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+
+.attach .media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.attach img {
+  max-height: 100px;
+  max-width: 100px;
+}
+
+.attach video {
+  max-height: 100px;
+  max-width: 100px;
+}
+
+.attach button {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.attach button mat-icon {
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.file-input {
+  display: none;
+}
+
+
 
 :host ::ng-deep .ck-editor__editable_inline {
   min-height: 400px !important;

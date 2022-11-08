@@ -26,9 +26,6 @@ export class ViewMainComponent implements OnInit {
         } else {
           this.globalService.showMessage(response.message)
         }
-      },
-      (error: any) => {
-        // console.log('teste')
       }
     )
   }

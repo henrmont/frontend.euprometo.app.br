@@ -14,9 +14,21 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatSelectModule} from '@angular/material/select';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatTableModule} from '@angular/material/table';
 
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+
+
+
+
 import { GalleryModule } from  'ng-gallery';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { ImageCropperModule } from 'ngx-image-cropper';
+
+
+
 
 
 
@@ -31,6 +43,16 @@ import { ViewPanelComponent } from './views/view-panel/view-panel.component';
 import { ViewAdminComponent } from './views/view-admin/view-admin.component';
 import { ViewAdminNewPostComponent } from './views/view-admin-new-post/view-admin-new-post.component';
 import { PostViewComponent } from './components/post/post-view/post-view.component';
+import { PostViewFullComponent } from './components/post/post-view-full/post-view-full.component';
+import { ViewPostComponent } from './views/view-post/view-post.component';
+import { TemplateAdminComponent } from './templates/template-admin/template-admin.component';
+import { ViewPoliticiansComponent } from './views/view-politicians/view-politicians.component';
+import { ViewAdminAddPoliticianComponent } from './views/view-admin-add-politician/view-admin-add-politician.component';
+import { PoliticianImageCropComponent } from './components/politician/politician-image-crop/politician-image-crop.component';
+import { ViewAdminPoliticiansComponent } from './views/view-admin-politicians/view-admin-politicians.component';
+import { ViewAdminEditPoliticianComponent } from './views/view-admin-edit-politician/view-admin-edit-politician.component';
+import { PoliticianStatusBoxComponent } from './components/politician/politician-status-box/politician-status-box.component';
+import { PoliticianDeleteBoxComponent } from './components/politician/politician-delete-box/politician-delete-box.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +68,16 @@ import { PostViewComponent } from './components/post/post-view/post-view.compone
     ViewAdminComponent,
     ViewAdminNewPostComponent,
     PostViewComponent,
+    PostViewFullComponent,
+    ViewPostComponent,
+    TemplateAdminComponent,
+    ViewPoliticiansComponent,
+    ViewAdminAddPoliticianComponent,
+    PoliticianImageCropComponent,
+    ViewAdminPoliticiansComponent,
+    ViewAdminEditPoliticianComponent,
+    PoliticianStatusBoxComponent,
+    PoliticianDeleteBoxComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,9 +93,14 @@ import { PostViewComponent } from './components/post/post-view/post-view.compone
     MatInputModule,
     MatSnackBarModule,
     MatMenuModule,
+    MatSelectModule,
+    MatAutocompleteModule,
+    MatDialogModule,
+    MatTableModule,
 
-    CKEditorModule,
     GalleryModule,
+    CKEditorModule,
+    ImageCropperModule
 
   ],
   providers: [

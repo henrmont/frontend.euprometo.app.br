@@ -1,0 +1,45 @@
+.post {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  margin: 3rem 0;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(200,200,200);
+  padding: 10px;
+}
+
+.data {
+  color: rgb(70,70,70);
+}
+
+.data mat-icon {
+  vertical-align: -6px;
+  margin-right: 10px;
+}
+
+.title {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: rgb(70,70,70);
+}
+
+.post gallery {
+  width: 100%;
+  height: 400px;
+}
+
+.search {
+  padding: auto 0;
+  width: 70%;
+  display: flex;
+  justify-items: center;
+}

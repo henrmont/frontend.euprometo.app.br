@@ -1,3 +1,9 @@
+import { ViewAdminEditPoliticianComponent } from './views/view-admin-edit-politician/view-admin-edit-politician.component';
+import { ViewAdminPoliticiansComponent } from './views/view-admin-politicians/view-admin-politicians.component';
+import { ViewAdminAddPoliticianComponent } from './views/view-admin-add-politician/view-admin-add-politician.component';
+import { TemplateAdminComponent } from './templates/template-admin/template-admin.component';
+import { ViewPoliticiansComponent } from './views/view-politicians/view-politicians.component';
+import { ViewPostComponent } from './views/view-post/view-post.component';
 import { ViewAdminComponent } from './views/view-admin/view-admin.component';
 import { AccountGuard } from './components/account/account.guard';
 import { ViewPanelComponent } from './views/view-panel/view-panel.component';
@@ -15,8 +21,9 @@ const routes: Routes = [
     path: '',
     component: TemplateGeneralComponent,
     children: [
-      {path: '', component: ViewPanelComponent},
-      {path: 'main', component: ViewMainComponent, canActivate: [AccountGuard]},
+      {path: '', component: ViewMainComponent},
+      {path: 'post/:post', component: ViewPostComponent},
+      {path: 'politicos', component: ViewPoliticiansComponent},
     ]
   },
   {
@@ -27,21 +34,16 @@ const routes: Routes = [
       {path: 'criar', component: ViewAccountCreateComponent},
     ]
   },
-  // {
-  //   path: '',
-  //   component: TemplateGeneralComponent,
-  //   children: [
-  //     {path: '', redirectTo: 'main', pathMatch: 'full'},
-  //     {path: 'main', component: ViewMainComponent},
-  //   ],
-  //   canActivate: [AccountGuard]
-  // },
   {
     path: 'admin',
-    component: TemplateGeneralComponent,
+    component: TemplateAdminComponent,
     children: [
-      {path: '', component: ViewAdminComponent, data: {title: 'PAINEL ADMINISTRATIVO'}},
-      {path: 'novo/post', component: ViewAdminNewPostComponent, data: {title: 'NOVO POST'}},
+      {path: '', component: ViewAdminComponent, data: {title: 'PAINEL ADMINISTRATIVO'},},
+      {path: 'add/post', component: ViewAdminNewPostComponent, data: {title: 'ADICIONAR POST'}},
+      {path: 'politicos', component: ViewAdminPoliticiansComponent, data: {title: 'POLÍTICOS'}},
+      {path: 'add/politico', component: ViewAdminAddPoliticianComponent, data: {title: 'ADICIONAR POLÍTICO'}},
+      {path: 'editar/politico', redirectTo: 'politicos', pathMatch: 'full'},
+      {path: 'editar/politico/:id', component: ViewAdminEditPoliticianComponent, data: {title: 'EDITAR POLÍTICO'}},
     ],
     canActivate: [AccountGuard]
   }

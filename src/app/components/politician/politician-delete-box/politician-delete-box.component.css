@@ -1,0 +1,27 @@
+:host {
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid black;
+  margin-bottom: 10px;
+}
+
+h1 {
+  width: 100%;
+  text-align: center;
+}
+
+.actBtn {
+  width: 100%;
+  padding: 5px;
+  margin: 10px 0;
+}
+
+.actBtn mat-icon {
+  margin-right: 0.5rem;
+  vertical-align: -0.4rem;
+}
